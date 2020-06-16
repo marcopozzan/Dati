@@ -1,0 +1,81 @@
+{
+	"name": "DataDestination",
+	"properties": {
+		"description": "Connect to your data destination store.",
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "OrderID",
+				"type": "Int32"
+			},
+			{
+				"name": "CustomerID",
+				"type": "Int32"
+			},
+			{
+				"name": "SalespersonPersonID",
+				"type": "Int32"
+			},
+			{
+				"name": "PickedByPersonID",
+				"type": "Int32"
+			},
+			{
+				"name": "ContactPersonID",
+				"type": "Int32"
+			},
+			{
+				"name": "BackorderOrderID",
+				"type": "Int32"
+			},
+			{
+				"name": "OrderDate",
+				"type": "Date"
+			},
+			{
+				"name": "ExpectedDeliveryDate",
+				"type": "Date"
+			},
+			{
+				"name": "CustomerPurchaseOrderNumber",
+				"type": "String"
+			},
+			{
+				"name": "IsUndersupplyBackordered",
+				"type": "Boolean"
+			},
+			{
+				"name": "Comments",
+				"type": "String"
+			},
+			{
+				"name": "DeliveryInstructions",
+				"type": "String"
+			},
+			{
+				"name": "InternalComments",
+				"type": "String"
+			},
+			{
+				"name": "PickingCompletedWhen",
+				"type": "DateTime"
+			},
+			{
+				"name": "LastEditedBy",
+				"type": "Int32"
+			},
+			{
+				"name": "LastEditedWhen",
+				"type": "DateTime"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[Orders]"
+		}
+	}
+}
