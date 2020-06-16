@@ -1,0 +1,231 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "lab01adf"
+		},
+		"ABS_Weather_fm_connectionString": {
+			"value": ""
+		},
+		"ADLS_CSV_ez_accountKey": {
+			"value": ""
+		},
+		"ADLS_Inventory_parts_accountKey": {
+			"value": ""
+		},
+		"ADLS_Lego_tw_accountKey": {
+			"value": ""
+		},
+		"ADLS_lab01_accountKey": {
+			"value": ""
+		},
+		"ADLS_lab01_MR_accountKey": {
+			"value": ""
+		},
+		"ADLS_lego_MM_accountKey": {
+			"value": ""
+		},
+		"ADLS_lego_ma_accountKey": {
+			"value": ""
+		},
+		"ADLS_lego_mp_accountKey": {
+			"value": ""
+		},
+		"AzStorage_stagingMB_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStoragelt_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"BlobStorage_MB_connectionString": {
+			"value": ""
+		},
+		"BlobStorage_fm_connectionString": {
+			"value": ""
+		},
+		"Data_ADLS_Lego_accountKey": {
+			"value": ""
+		},
+		"LocalDBToAzureDB_connectionString": {
+			"value": ""
+		},
+		"blobby_tw_connectionString": {
+			"value": ""
+		},
+		"bloblab01_connectionString": {
+			"value": ""
+		},
+		"blobstorage_DC_connectionString": {
+			"value": ""
+		},
+		"blobstorage_ez_connectionString": {
+			"value": ""
+		},
+		"blobstorage_gp_connectionString": {
+			"value": ""
+		},
+		"blobstorage_lt_connectionString": {
+			"value": ""
+		},
+		"blobstorage_mp_connectionString": {
+			"value": ""
+		},
+		"filesystem_mm_password": {
+			"value": ""
+		},
+		"filesystem_mp_password": {
+			"value": ""
+		},
+		"ADLS_CSV_ez_properties_typeProperties_url": {
+			"value": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_Inventory_parts_properties_typeProperties_url": {
+			"value": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_Lego_tw_properties_typeProperties_url": {
+			"value": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_lab01_properties_typeProperties_url": {
+			"value": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_lab01_MR_properties_typeProperties_url": {
+			"value": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_lego_MM_properties_typeProperties_url": {
+			"value": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_lego_ma_properties_typeProperties_url": {
+			"value": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_lego_mp_properties_typeProperties_url": {
+			"value": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"AzureDataLakeStoragelt_properties_typeProperties_url": {
+			"value": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kvdam.vault.azure.net/"
+		},
+		"Data_ADLS_Lego_properties_typeProperties_url": {
+			"value": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"Data_HTTP_Lego_dc_properties_typeProperties_url": {
+			"value": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"Enh_HTTP_Source_TW_properties_typeProperties_url": {
+			"value": "https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"HTTP Lego_properties_typeProperties_url": {
+			"value": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"HTTP_Logo_properties_typeProperties_url": {
+			"value": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"HTTP_Logo_ma_properties_typeProperties_url": {
+			"value": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"HTTP_Weather_properties_typeProperties_url": {
+			"value": "https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"HTTP_Weather_MB_properties_typeProperties_url": {
+			"value": " https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"HTTP_Weather_fm_properties_typeProperties_url": {
+			"value": "https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"HttpLegoMM_properties_typeProperties_url": {
+			"value": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"HttpServerTW_properties_typeProperties_url": {
+			"value": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"Http_Inventory_parts_properties_typeProperties_url": {
+			"value": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"INVPARTS_HTTP_CONN_ez_properties_typeProperties_url": {
+			"value": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"Page_properties_typeProperties_url": {
+			"value": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"SODACrimeAPI_DC_properties_typeProperties_url": {
+			"value": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_TW_properties_typeProperties_url": {
+			"value": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_ez_properties_typeProperties_url": {
+			"value": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_fm_properties_typeProperties_url": {
+			"value": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_gp_properties_typeProperties_url": {
+			"value": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_lt_properties_typeProperties_url": {
+			"value": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_mp_properties_typeProperties_url": {
+			"value": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrime_API_MB_properties_typeProperties_url": {
+			"value": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"filesystem_mm_properties_typeProperties_host": {
+			"value": "C:\\Users\\Marco\\Desktop"
+		},
+		"filesystem_mm_properties_typeProperties_userId": {
+			"value": "Marco"
+		},
+		"filesystem_mp_properties_typeProperties_host": {
+			"value": "C:\\Users\\info.AzureAD\\Downloads\\colors.csv"
+		},
+		"filesystem_mp_properties_typeProperties_userId": {
+			"value": "AzureAd\\Info"
+		},
+		"http_weather_MB2_properties_typeProperties_url": {
+			"value": "https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"IR-DAM_properties_typeProperties_linkedInfo_resourceId": {
+			"value": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"IR-TW_properties_typeProperties_linkedInfo_resourceId": {
+			"value": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"IRfrancescomomesso_properties_typeProperties_linkedInfo_resourceId": {
+			"value": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"IRlt_properties_typeProperties_linkedInfo_resourceId": {
+			"value": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"IRma_properties_typeProperties_linkedInfo_resourceId": {
+			"value": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"integrationRuntimMM_properties_typeProperties_linkedInfo_resourceId": {
+			"value": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"ir-MB_properties_typeProperties_linkedInfo_resourceId": {
+			"value": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

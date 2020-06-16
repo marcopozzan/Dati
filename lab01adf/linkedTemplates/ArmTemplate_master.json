@@ -1,0 +1,686 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "lab01adf"
+		},
+		"ABS_Weather_fm_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ABS_Weather_fm'"
+		},
+		"ADLS_CSV_ez_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_CSV_ez'"
+		},
+		"ADLS_Inventory_parts_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_Inventory_parts'"
+		},
+		"ADLS_Lego_tw_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_Lego_tw'"
+		},
+		"ADLS_lab01_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_lab01'"
+		},
+		"ADLS_lab01_MR_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_lab01_MR'"
+		},
+		"ADLS_lego_MM_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_lego_MM'"
+		},
+		"ADLS_lego_ma_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_lego_ma'"
+		},
+		"ADLS_lego_mp_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_lego_mp'"
+		},
+		"AzStorage_stagingMB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzStorage_stagingMB'"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
+		},
+		"AzureDataLakeStoragelt_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStoragelt'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"BlobStorage_MB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'BlobStorage_MB'"
+		},
+		"BlobStorage_fm_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'BlobStorage_fm'"
+		},
+		"Data_ADLS_Lego_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Data_ADLS_Lego'"
+		},
+		"LocalDBToAzureDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LocalDBToAzureDB'"
+		},
+		"blobby_tw_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blobby_tw'"
+		},
+		"bloblab01_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'bloblab01'"
+		},
+		"blobstorage_DC_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blobstorage_DC'"
+		},
+		"blobstorage_ez_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blobstorage_ez'"
+		},
+		"blobstorage_gp_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blobstorage_gp'"
+		},
+		"blobstorage_lt_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blobstorage_lt'"
+		},
+		"blobstorage_mp_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blobstorage_mp'"
+		},
+		"filesystem_mm_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'filesystem_mm'"
+		},
+		"filesystem_mp_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'filesystem_mp'"
+		},
+		"ADLS_CSV_ez_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_Inventory_parts_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_Lego_tw_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_lab01_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_lab01_MR_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_lego_MM_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_lego_ma_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"ADLS_lego_mp_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"AzureDataLakeStoragelt_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kvdam.vault.azure.net/"
+		},
+		"Data_ADLS_Lego_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2course.dfs.core.windows.net"
+		},
+		"Data_HTTP_Lego_dc_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"Enh_HTTP_Source_TW_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"HTTP Lego_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"HTTP_Logo_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"HTTP_Logo_ma_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"HTTP_Weather_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"HTTP_Weather_MB_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": " https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"HTTP_Weather_fm_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"HttpLegoMM_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"HttpServerTW_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"Http_Inventory_parts_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"INVPARTS_HTTP_CONN_ez_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"Page_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"SODACrimeAPI_DC_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_TW_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_ez_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_fm_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_gp_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_lt_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrimeAPI_mp_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"SODACrime_API_MB_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.cityofchicago.org/resource/crimes.json?$limit=50000"
+		},
+		"filesystem_mm_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Users\\Marco\\Desktop"
+		},
+		"filesystem_mm_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "Marco"
+		},
+		"filesystem_mp_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Users\\info.AzureAD\\Downloads\\colors.csv"
+		},
+		"filesystem_mp_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "AzureAd\\Info"
+		},
+		"http_weather_MB2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://weather-b362.restdb.io/rest/random-weather-dec-2016"
+		},
+		"IR-DAM_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"IR-TW_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"IRfrancescomomesso_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"IRlt_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"IRma_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"integrationRuntimMM_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"ir-MB_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/55a9de92-ecad-42a7-9158-e95e8fe213ee/resourcegroups/DAM/providers/Microsoft.DataFactory/factories/Adfesame/integrationruntimes/IR-DAM"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ABS_Weather_fm_connectionString": {
+						"value": "[parameters('ABS_Weather_fm_connectionString')]"
+					},
+					"ADLS_CSV_ez_accountKey": {
+						"value": "[parameters('ADLS_CSV_ez_accountKey')]"
+					},
+					"ADLS_Inventory_parts_accountKey": {
+						"value": "[parameters('ADLS_Inventory_parts_accountKey')]"
+					},
+					"ADLS_Lego_tw_accountKey": {
+						"value": "[parameters('ADLS_Lego_tw_accountKey')]"
+					},
+					"ADLS_lab01_accountKey": {
+						"value": "[parameters('ADLS_lab01_accountKey')]"
+					},
+					"ADLS_lab01_MR_accountKey": {
+						"value": "[parameters('ADLS_lab01_MR_accountKey')]"
+					},
+					"ADLS_lego_MM_accountKey": {
+						"value": "[parameters('ADLS_lego_MM_accountKey')]"
+					},
+					"ADLS_lego_ma_accountKey": {
+						"value": "[parameters('ADLS_lego_ma_accountKey')]"
+					},
+					"ADLS_lego_mp_accountKey": {
+						"value": "[parameters('ADLS_lego_mp_accountKey')]"
+					},
+					"AzStorage_stagingMB_connectionString": {
+						"value": "[parameters('AzStorage_stagingMB_connectionString')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureBlobStorage2_connectionString": {
+						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"AzureDataLakeStoragelt_accountKey": {
+						"value": "[parameters('AzureDataLakeStoragelt_accountKey')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"BlobStorage_MB_connectionString": {
+						"value": "[parameters('BlobStorage_MB_connectionString')]"
+					},
+					"BlobStorage_fm_connectionString": {
+						"value": "[parameters('BlobStorage_fm_connectionString')]"
+					},
+					"Data_ADLS_Lego_accountKey": {
+						"value": "[parameters('Data_ADLS_Lego_accountKey')]"
+					},
+					"ADLS_CSV_ez_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_CSV_ez_properties_typeProperties_url')]"
+					},
+					"ADLS_Inventory_parts_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_Inventory_parts_properties_typeProperties_url')]"
+					},
+					"ADLS_Lego_tw_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_Lego_tw_properties_typeProperties_url')]"
+					},
+					"ADLS_lab01_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_lab01_properties_typeProperties_url')]"
+					},
+					"ADLS_lab01_MR_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_lab01_MR_properties_typeProperties_url')]"
+					},
+					"ADLS_lego_MM_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_lego_MM_properties_typeProperties_url')]"
+					},
+					"ADLS_lego_ma_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_lego_ma_properties_typeProperties_url')]"
+					},
+					"ADLS_lego_mp_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_lego_mp_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStoragelt_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStoragelt_properties_typeProperties_url')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"Data_ADLS_Lego_properties_typeProperties_url": {
+						"value": "[parameters('Data_ADLS_Lego_properties_typeProperties_url')]"
+					},
+					"Data_HTTP_Lego_dc_properties_typeProperties_url": {
+						"value": "[parameters('Data_HTTP_Lego_dc_properties_typeProperties_url')]"
+					},
+					"Enh_HTTP_Source_TW_properties_typeProperties_url": {
+						"value": "[parameters('Enh_HTTP_Source_TW_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"HTTP Lego_properties_typeProperties_url": {
+						"value": "[parameters('HTTP Lego_properties_typeProperties_url')]"
+					},
+					"HTTP_Logo_properties_typeProperties_url": {
+						"value": "[parameters('HTTP_Logo_properties_typeProperties_url')]"
+					},
+					"HTTP_Logo_ma_properties_typeProperties_url": {
+						"value": "[parameters('HTTP_Logo_ma_properties_typeProperties_url')]"
+					},
+					"HTTP_Weather_properties_typeProperties_url": {
+						"value": "[parameters('HTTP_Weather_properties_typeProperties_url')]"
+					},
+					"HTTP_Weather_MB_properties_typeProperties_url": {
+						"value": "[parameters('HTTP_Weather_MB_properties_typeProperties_url')]"
+					},
+					"HTTP_Weather_fm_properties_typeProperties_url": {
+						"value": "[parameters('HTTP_Weather_fm_properties_typeProperties_url')]"
+					},
+					"HttpLegoMM_properties_typeProperties_url": {
+						"value": "[parameters('HttpLegoMM_properties_typeProperties_url')]"
+					},
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"HttpServerTW_properties_typeProperties_url": {
+						"value": "[parameters('HttpServerTW_properties_typeProperties_url')]"
+					},
+					"Http_Inventory_parts_properties_typeProperties_url": {
+						"value": "[parameters('Http_Inventory_parts_properties_typeProperties_url')]"
+					},
+					"INVPARTS_HTTP_CONN_ez_properties_typeProperties_url": {
+						"value": "[parameters('INVPARTS_HTTP_CONN_ez_properties_typeProperties_url')]"
+					},
+					"Page_properties_typeProperties_url": {
+						"value": "[parameters('Page_properties_typeProperties_url')]"
+					},
+					"SODACrimeAPI_DC_properties_typeProperties_url": {
+						"value": "[parameters('SODACrimeAPI_DC_properties_typeProperties_url')]"
+					},
+					"SODACrimeAPI_TW_properties_typeProperties_url": {
+						"value": "[parameters('SODACrimeAPI_TW_properties_typeProperties_url')]"
+					},
+					"SODACrimeAPI_ez_properties_typeProperties_url": {
+						"value": "[parameters('SODACrimeAPI_ez_properties_typeProperties_url')]"
+					},
+					"SODACrimeAPI_fm_properties_typeProperties_url": {
+						"value": "[parameters('SODACrimeAPI_fm_properties_typeProperties_url')]"
+					},
+					"SODACrimeAPI_gp_properties_typeProperties_url": {
+						"value": "[parameters('SODACrimeAPI_gp_properties_typeProperties_url')]"
+					},
+					"SODACrimeAPI_lt_properties_typeProperties_url": {
+						"value": "[parameters('SODACrimeAPI_lt_properties_typeProperties_url')]"
+					},
+					"SODACrimeAPI_mp_properties_typeProperties_url": {
+						"value": "[parameters('SODACrimeAPI_mp_properties_typeProperties_url')]"
+					},
+					"SODACrime_API_MB_properties_typeProperties_url": {
+						"value": "[parameters('SODACrime_API_MB_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"blobby_tw_connectionString": {
+						"value": "[parameters('blobby_tw_connectionString')]"
+					},
+					"bloblab01_connectionString": {
+						"value": "[parameters('bloblab01_connectionString')]"
+					},
+					"blobstorage_DC_connectionString": {
+						"value": "[parameters('blobstorage_DC_connectionString')]"
+					},
+					"blobstorage_ez_connectionString": {
+						"value": "[parameters('blobstorage_ez_connectionString')]"
+					},
+					"blobstorage_gp_connectionString": {
+						"value": "[parameters('blobstorage_gp_connectionString')]"
+					},
+					"blobstorage_lt_connectionString": {
+						"value": "[parameters('blobstorage_lt_connectionString')]"
+					},
+					"blobstorage_mp_connectionString": {
+						"value": "[parameters('blobstorage_mp_connectionString')]"
+					},
+					"http_weather_MB2_properties_typeProperties_url": {
+						"value": "[parameters('http_weather_MB2_properties_typeProperties_url')]"
+					},
+					"IR-DAM_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('IR-DAM_properties_typeProperties_linkedInfo_resourceId')]"
+					},
+					"IR-TW_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('IR-TW_properties_typeProperties_linkedInfo_resourceId')]"
+					},
+					"IRfrancescomomesso_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('IRfrancescomomesso_properties_typeProperties_linkedInfo_resourceId')]"
+					},
+					"IRlt_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('IRlt_properties_typeProperties_linkedInfo_resourceId')]"
+					},
+					"IRma_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('IRma_properties_typeProperties_linkedInfo_resourceId')]"
+					},
+					"integrationRuntimMM_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('integrationRuntimMM_properties_typeProperties_linkedInfo_resourceId')]"
+					},
+					"ir-MB_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('ir-MB_properties_typeProperties_linkedInfo_resourceId')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_3')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_5",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_5.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_4')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_6",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_6.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LocalDBToAzureDB_connectionString": {
+						"value": "[parameters('LocalDBToAzureDB_connectionString')]"
+					},
+					"filesystem_mm_password": {
+						"value": "[parameters('filesystem_mm_password')]"
+					},
+					"filesystem_mp_password": {
+						"value": "[parameters('filesystem_mp_password')]"
+					},
+					"filesystem_mm_properties_typeProperties_host": {
+						"value": "[parameters('filesystem_mm_properties_typeProperties_host')]"
+					},
+					"filesystem_mm_properties_typeProperties_userId": {
+						"value": "[parameters('filesystem_mm_properties_typeProperties_userId')]"
+					},
+					"filesystem_mp_properties_typeProperties_host": {
+						"value": "[parameters('filesystem_mp_properties_typeProperties_host')]"
+					},
+					"filesystem_mp_properties_typeProperties_userId": {
+						"value": "[parameters('filesystem_mp_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_5')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_7",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_7.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_6')]"
+			]
+		}
+	]
+}

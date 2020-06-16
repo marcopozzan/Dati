@@ -1,0 +1,1381 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "lab01adf"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SODACrimeAPI_TW')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SODACrimeAPI_TW",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Billy Dataset/this ain't ya folder, bro"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "string"
+						},
+						"case_number": {
+							"type": "string"
+						},
+						"date": {
+							"type": "string"
+						},
+						"block": {
+							"type": "string"
+						},
+						"iucr": {
+							"type": "string"
+						},
+						"primary_type": {
+							"type": "string"
+						},
+						"description": {
+							"type": "string"
+						},
+						"location_description": {
+							"type": "string"
+						},
+						"arrest": {
+							"type": "boolean"
+						},
+						"domestic": {
+							"type": "boolean"
+						},
+						"beat": {
+							"type": "string"
+						},
+						"district": {
+							"type": "string"
+						},
+						"ward": {
+							"type": "string"
+						},
+						"community_area": {
+							"type": "string"
+						},
+						"fbi_code": {
+							"type": "string"
+						},
+						"x_coordinate": {
+							"type": "string"
+						},
+						"y_coordinate": {
+							"type": "string"
+						},
+						"year": {
+							"type": "string"
+						},
+						"updated_on": {
+							"type": "string"
+						},
+						"latitude": {
+							"type": "string"
+						},
+						"longitude": {
+							"type": "string"
+						},
+						"location": {
+							"type": "object",
+							"properties": {
+								"latitude": {
+									"type": "string"
+								},
+								"longitude": {
+									"type": "string"
+								},
+								"human_address": {
+									"type": "string"
+								}
+							}
+						},
+						":@computed_region_awaf_s7ux": {
+							"type": "string"
+						},
+						":@computed_region_6mkv_f3dw": {
+							"type": "string"
+						},
+						":@computed_region_vrxf_vc4k": {
+							"type": "string"
+						},
+						":@computed_region_bdys_3d7i": {
+							"type": "string"
+						},
+						":@computed_region_43wa_7qmu": {
+							"type": "string"
+						},
+						":@computed_region_rpca_8um6": {
+							"type": "string"
+						},
+						":@computed_region_d9mm_jgwp": {
+							"type": "string"
+						},
+						":@computed_region_d3ds_rm58": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SODACrimeAPI_ez')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SODACrimeAPI_ez",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "string"
+						},
+						"case_number": {
+							"type": "string"
+						},
+						"date": {
+							"type": "string"
+						},
+						"block": {
+							"type": "string"
+						},
+						"iucr": {
+							"type": "string"
+						},
+						"primary_type": {
+							"type": "string"
+						},
+						"description": {
+							"type": "string"
+						},
+						"location_description": {
+							"type": "string"
+						},
+						"arrest": {
+							"type": "boolean"
+						},
+						"domestic": {
+							"type": "boolean"
+						},
+						"beat": {
+							"type": "string"
+						},
+						"district": {
+							"type": "string"
+						},
+						"ward": {
+							"type": "string"
+						},
+						"community_area": {
+							"type": "string"
+						},
+						"fbi_code": {
+							"type": "string"
+						},
+						"x_coordinate": {
+							"type": "string"
+						},
+						"y_coordinate": {
+							"type": "string"
+						},
+						"year": {
+							"type": "string"
+						},
+						"updated_on": {
+							"type": "string"
+						},
+						"latitude": {
+							"type": "string"
+						},
+						"longitude": {
+							"type": "string"
+						},
+						"location": {
+							"type": "object",
+							"properties": {
+								"latitude": {
+									"type": "string"
+								},
+								"longitude": {
+									"type": "string"
+								},
+								"human_address": {
+									"type": "string"
+								}
+							}
+						},
+						":@computed_region_awaf_s7ux": {
+							"type": "string"
+						},
+						":@computed_region_6mkv_f3dw": {
+							"type": "string"
+						},
+						":@computed_region_vrxf_vc4k": {
+							"type": "string"
+						},
+						":@computed_region_bdys_3d7i": {
+							"type": "string"
+						},
+						":@computed_region_43wa_7qmu": {
+							"type": "string"
+						},
+						":@computed_region_rpca_8um6": {
+							"type": "string"
+						},
+						":@computed_region_d9mm_jgwp": {
+							"type": "string"
+						},
+						":@computed_region_d3ds_rm58": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SODACrimeAPI_fm')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SODACrimeAPI_fm",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "string"
+						},
+						"case_number": {
+							"type": "string"
+						},
+						"date": {
+							"type": "string"
+						},
+						"block": {
+							"type": "string"
+						},
+						"iucr": {
+							"type": "string"
+						},
+						"primary_type": {
+							"type": "string"
+						},
+						"description": {
+							"type": "string"
+						},
+						"location_description": {
+							"type": "string"
+						},
+						"arrest": {
+							"type": "boolean"
+						},
+						"domestic": {
+							"type": "boolean"
+						},
+						"beat": {
+							"type": "string"
+						},
+						"district": {
+							"type": "string"
+						},
+						"ward": {
+							"type": "string"
+						},
+						"community_area": {
+							"type": "string"
+						},
+						"fbi_code": {
+							"type": "string"
+						},
+						"x_coordinate": {
+							"type": "string"
+						},
+						"y_coordinate": {
+							"type": "string"
+						},
+						"year": {
+							"type": "string"
+						},
+						"updated_on": {
+							"type": "string"
+						},
+						"latitude": {
+							"type": "string"
+						},
+						"longitude": {
+							"type": "string"
+						},
+						"location": {
+							"type": "object",
+							"properties": {
+								"latitude": {
+									"type": "string"
+								},
+								"longitude": {
+									"type": "string"
+								},
+								"human_address": {
+									"type": "string"
+								}
+							}
+						},
+						":@computed_region_awaf_s7ux": {
+							"type": "string"
+						},
+						":@computed_region_6mkv_f3dw": {
+							"type": "string"
+						},
+						":@computed_region_vrxf_vc4k": {
+							"type": "string"
+						},
+						":@computed_region_bdys_3d7i": {
+							"type": "string"
+						},
+						":@computed_region_43wa_7qmu": {
+							"type": "string"
+						},
+						":@computed_region_rpca_8um6": {
+							"type": "string"
+						},
+						":@computed_region_d9mm_jgwp": {
+							"type": "string"
+						},
+						":@computed_region_d3ds_rm58": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SODACrimeAPI_gp')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SODACrimeAPI_gp",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "string"
+						},
+						"case_number": {
+							"type": "string"
+						},
+						"date": {
+							"type": "string"
+						},
+						"block": {
+							"type": "string"
+						},
+						"iucr": {
+							"type": "string"
+						},
+						"primary_type": {
+							"type": "string"
+						},
+						"description": {
+							"type": "string"
+						},
+						"location_description": {
+							"type": "string"
+						},
+						"arrest": {
+							"type": "boolean"
+						},
+						"domestic": {
+							"type": "boolean"
+						},
+						"beat": {
+							"type": "string"
+						},
+						"district": {
+							"type": "string"
+						},
+						"ward": {
+							"type": "string"
+						},
+						"community_area": {
+							"type": "string"
+						},
+						"fbi_code": {
+							"type": "string"
+						},
+						"x_coordinate": {
+							"type": "string"
+						},
+						"y_coordinate": {
+							"type": "string"
+						},
+						"year": {
+							"type": "string"
+						},
+						"updated_on": {
+							"type": "string"
+						},
+						"latitude": {
+							"type": "string"
+						},
+						"longitude": {
+							"type": "string"
+						},
+						"location": {
+							"type": "object",
+							"properties": {
+								"latitude": {
+									"type": "string"
+								},
+								"longitude": {
+									"type": "string"
+								},
+								"human_address": {
+									"type": "string"
+								}
+							}
+						},
+						":@computed_region_awaf_s7ux": {
+							"type": "string"
+						},
+						":@computed_region_6mkv_f3dw": {
+							"type": "string"
+						},
+						":@computed_region_vrxf_vc4k": {
+							"type": "string"
+						},
+						":@computed_region_bdys_3d7i": {
+							"type": "string"
+						},
+						":@computed_region_43wa_7qmu": {
+							"type": "string"
+						},
+						":@computed_region_rpca_8um6": {
+							"type": "string"
+						},
+						":@computed_region_d9mm_jgwp": {
+							"type": "string"
+						},
+						":@computed_region_d3ds_rm58": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SODACrimeAPI_lt')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SODACrimeAPI_lt",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "string"
+						},
+						"case_number": {
+							"type": "string"
+						},
+						"date": {
+							"type": "string"
+						},
+						"block": {
+							"type": "string"
+						},
+						"iucr": {
+							"type": "string"
+						},
+						"primary_type": {
+							"type": "string"
+						},
+						"description": {
+							"type": "string"
+						},
+						"location_description": {
+							"type": "string"
+						},
+						"arrest": {
+							"type": "boolean"
+						},
+						"domestic": {
+							"type": "boolean"
+						},
+						"beat": {
+							"type": "string"
+						},
+						"district": {
+							"type": "string"
+						},
+						"ward": {
+							"type": "string"
+						},
+						"community_area": {
+							"type": "string"
+						},
+						"fbi_code": {
+							"type": "string"
+						},
+						"x_coordinate": {
+							"type": "string"
+						},
+						"y_coordinate": {
+							"type": "string"
+						},
+						"year": {
+							"type": "string"
+						},
+						"updated_on": {
+							"type": "string"
+						},
+						"latitude": {
+							"type": "string"
+						},
+						"longitude": {
+							"type": "string"
+						},
+						"location": {
+							"type": "object",
+							"properties": {
+								"latitude": {
+									"type": "string"
+								},
+								"longitude": {
+									"type": "string"
+								},
+								"human_address": {
+									"type": "string"
+								}
+							}
+						},
+						":@computed_region_awaf_s7ux": {
+							"type": "string"
+						},
+						":@computed_region_6mkv_f3dw": {
+							"type": "string"
+						},
+						":@computed_region_vrxf_vc4k": {
+							"type": "string"
+						},
+						":@computed_region_bdys_3d7i": {
+							"type": "string"
+						},
+						":@computed_region_43wa_7qmu": {
+							"type": "string"
+						},
+						":@computed_region_rpca_8um6": {
+							"type": "string"
+						},
+						":@computed_region_d9mm_jgwp": {
+							"type": "string"
+						},
+						":@computed_region_d3ds_rm58": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SODACrimeAPI_mp')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SODACrimeAPI_mp",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "string"
+						},
+						"case_number": {
+							"type": "string"
+						},
+						"date": {
+							"type": "string"
+						},
+						"block": {
+							"type": "string"
+						},
+						"iucr": {
+							"type": "string"
+						},
+						"primary_type": {
+							"type": "string"
+						},
+						"description": {
+							"type": "string"
+						},
+						"location_description": {
+							"type": "string"
+						},
+						"arrest": {
+							"type": "boolean"
+						},
+						"domestic": {
+							"type": "boolean"
+						},
+						"beat": {
+							"type": "string"
+						},
+						"district": {
+							"type": "string"
+						},
+						"ward": {
+							"type": "string"
+						},
+						"community_area": {
+							"type": "string"
+						},
+						"fbi_code": {
+							"type": "string"
+						},
+						"x_coordinate": {
+							"type": "string"
+						},
+						"y_coordinate": {
+							"type": "string"
+						},
+						"year": {
+							"type": "string"
+						},
+						"updated_on": {
+							"type": "string"
+						},
+						"latitude": {
+							"type": "string"
+						},
+						"longitude": {
+							"type": "string"
+						},
+						"location": {
+							"type": "object",
+							"properties": {
+								"latitude": {
+									"type": "string"
+								},
+								"longitude": {
+									"type": "string"
+								},
+								"human_address": {
+									"type": "string"
+								}
+							}
+						},
+						":@computed_region_awaf_s7ux": {
+							"type": "string"
+						},
+						":@computed_region_6mkv_f3dw": {
+							"type": "string"
+						},
+						":@computed_region_vrxf_vc4k": {
+							"type": "string"
+						},
+						":@computed_region_bdys_3d7i": {
+							"type": "string"
+						},
+						":@computed_region_43wa_7qmu": {
+							"type": "string"
+						},
+						":@computed_region_rpca_8um6": {
+							"type": "string"
+						},
+						":@computed_region_d9mm_jgwp": {
+							"type": "string"
+						},
+						":@computed_region_d3ds_rm58": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SODACrime_MB')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SODACrime_API_MB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "string"
+						},
+						"case_number": {
+							"type": "string"
+						},
+						"date": {
+							"type": "string"
+						},
+						"block": {
+							"type": "string"
+						},
+						"iucr": {
+							"type": "string"
+						},
+						"primary_type": {
+							"type": "string"
+						},
+						"description": {
+							"type": "string"
+						},
+						"location_description": {
+							"type": "string"
+						},
+						"arrest": {
+							"type": "boolean"
+						},
+						"domestic": {
+							"type": "boolean"
+						},
+						"beat": {
+							"type": "string"
+						},
+						"district": {
+							"type": "string"
+						},
+						"ward": {
+							"type": "string"
+						},
+						"community_area": {
+							"type": "string"
+						},
+						"fbi_code": {
+							"type": "string"
+						},
+						"x_coordinate": {
+							"type": "string"
+						},
+						"y_coordinate": {
+							"type": "string"
+						},
+						"year": {
+							"type": "string"
+						},
+						"updated_on": {
+							"type": "string"
+						},
+						"latitude": {
+							"type": "string"
+						},
+						"longitude": {
+							"type": "string"
+						},
+						"location": {
+							"type": "object",
+							"properties": {
+								"latitude": {
+									"type": "string"
+								},
+								"longitude": {
+									"type": "string"
+								},
+								"human_address": {
+									"type": "string"
+								}
+							}
+						},
+						":@computed_region_awaf_s7ux": {
+							"type": "string"
+						},
+						":@computed_region_6mkv_f3dw": {
+							"type": "string"
+						},
+						":@computed_region_vrxf_vc4k": {
+							"type": "string"
+						},
+						":@computed_region_bdys_3d7i": {
+							"type": "string"
+						},
+						":@computed_region_43wa_7qmu": {
+							"type": "string"
+						},
+						":@computed_region_rpca_8um6": {
+							"type": "string"
+						},
+						":@computed_region_d9mm_jgwp": {
+							"type": "string"
+						},
+						":@computed_region_d3ds_rm58": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_crime')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bloblab01",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "lab3"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_http_invetory_parts_MM')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "HttpLegoMM",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FileName": {
+						"type": "string",
+						"defaultValue": "FileName"
+					}
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation",
+						"relativeUrl": {
+							"value": "@dataset().FileName",
+							"type": "Expression"
+						}
+					},
+					"columnDelimiter": ",",
+					"rowDelimiter": "\n",
+					"compressionCodec": "gzip",
+					"compressionLevel": "Optimal",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "inventory_id",
+						"type": "String"
+					},
+					{
+						"name": "part_num",
+						"type": "String"
+					},
+					{
+						"name": "color_id",
+						"type": "String"
+					},
+					{
+						"name": "quantity",
+						"type": "String"
+					},
+					{
+						"name": "is_spare",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Datafilecrime_MB')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bloblab01",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "lab3"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bloblab01",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "LegoCinfigurationFile.csv",
+						"container": "lab01"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bloblab01",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "LegoCinfigurationFile.csv",
+						"container": "lab01"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationDataset_fg5')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "201612-WeatherData.txt",
+						"container": "lab01"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationDataset_kj1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bloblab01",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "201612-WeatherData.txt",
+						"container": "lab01"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationDataset_v3k')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bloblab01",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "201612-WeatherData.txt",
+						"container": "lab0"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationDataset_vnk')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ADLS_lab01",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "inventory_parts.csv",
+						"fileSystem": "legogp"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationDataset_wem')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ADLS_CSV_ez",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "invpartesez.csv",
+						"fileSystem": "robaez"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": false,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationDataset_xem')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzStorage_stagingMB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "201612-WeatherData.txt",
+						"container": "lab01"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationDataset_ym9')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ADLS_CSV_ez",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "inventorypartsez.csv",
+						"fileSystem": "legoez"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/HTTP_Inventory_parts_ma')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "HTTP_Logo_ma",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FileName": {
+						"type": "string",
+						"defaultValue": "FileName"
+					}
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation",
+						"relativeUrl": {
+							"value": "@dataset().FileName",
+							"type": "Expression"
+						}
+					},
+					"columnDelimiter": ",",
+					"rowDelimiter": "\n",
+					"compressionCodec": "gzip",
+					"compressionLevel": "Optimal",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "inventory_id",
+						"type": "String"
+					},
+					{
+						"name": "part_num",
+						"type": "String"
+					},
+					{
+						"name": "color_id",
+						"type": "String"
+					},
+					{
+						"name": "quantity",
+						"type": "String"
+					},
+					{
+						"name": "is_spare",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		}
+	]
+}
